@@ -11,14 +11,14 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>Datum</artifactId>
-    <version>0.9.1-SNAPSHOT</version>
+    <version>0.9.0-1-SNAPSHOT</version>
     <name>Datum</name>
     <description>WebJar for Datum</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.url>https://github.com/MartinRixham/Datum/archive/v${version.unsnapshot}.zip</upstream.url>
+        <upstream.url>https://unpkg.com/Datum@${version.unrevise}/target</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
@@ -78,14 +78,9 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="download archive" />
-                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip" />
-                                <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
-                                <echo message="moving resources" />
-                                <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}" />
-                                </move>
+                                <mkdir dir="${destDir}"/>
+                                <get src="${upstream.url}/Datum.js" dest="${destDir}"/>
+                                <get src="${upstream.url}/Datum.min.js" dest="${destDir}"/>
                             </target>
                         </configuration>
                     </execution>
