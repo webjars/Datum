@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>Datum</artifactId>
-    <version>0.10.1-SNAPSHOT</version>
+    <version>0.11.0-SNAPSHOT</version>
     <name>Datum</name>
     <description>WebJar for Datum</description>
     <url>http://webjars.org</url>
